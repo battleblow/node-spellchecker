@@ -1,6 +1,9 @@
 {
   'variables': {
     'conditions': [
+      ['OS=="freebsd"', {
+        'spellchecker_use_hunspell': 'true',
+      }],
       ['OS=="mac"', {
         'spellchecker_use_hunspell%': 'true',
       }],
@@ -45,6 +48,12 @@
           ],
           'sources': [
             'src/spellchecker_hunspell.cc',
+          ],
+        }],
+        ['OS=="freebsd"', {
+          'sources': [
+             'src/spellchecker_linux.cc',
+             'src/transcoder_posix.cc',
           ],
         }],
         ['OS=="win"', {
